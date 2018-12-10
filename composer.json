@@ -1,0 +1,29 @@
+{
+    "name": "xinhus/persona",
+    "authors": [
+        {
+            "name": "Rafael Cardoso",
+            "email": "xinhus@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "object-calisthenics/phpcs-calisthenics-rules": "^3.4",
+        "phpunit/phpunit": "^7.5",
+        "friendsofphp/php-cs-fixer": "^2.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Persona\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\Persona\\": "test/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --colors=always",
+        "sniffer": "phpcs src -sp --standard=vendor/object-calisthenics/phpcs-calisthenics-rules/src/ObjectCalisthenics/ruleset.xml"
+    }
+}
