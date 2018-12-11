@@ -24,6 +24,6 @@ class UserServiceFacadeTest extends PersonaTestCase
 
         Assert::assertEquals($username, $userFromRepository->getUsername());
         Assert::assertEquals($userAlias, $userFromRepository->getAlias());
-        Assert::assertEquals($passwordEncrypted, $user->getPassword());
+        Assert::assertEquals($passwordEncrypted, $userFromRepository->getPassword());
     }
 }

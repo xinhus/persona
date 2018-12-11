@@ -28,7 +28,7 @@ class UserRepositoryInMemory implements UserRepository
     {
         foreach ($this->users as $user) {
             if ($user->getUsername() === $username) {
-                return $user;
+                return User::createUserWithPassword($user, $user->getPassword());
             }
         }
         throw new UserNotFoundException("User \"{$username}\" not found.");

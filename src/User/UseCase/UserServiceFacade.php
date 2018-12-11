@@ -16,7 +16,7 @@ class UserServiceFacade implements UserService
     public function createUser(User $user, string $password): bool
     {
         $passwordEncrypted = Vault::encrypt($password, 'User');
-        $user = $user->setPassword($passwordEncrypted);
-        return UserRepositoryResolver::resolve()->addUser($user);
+        $userToSave = User::createUserWithPassword($user, $passwordEncrypted);
+        return UserRepositoryResolver::resolve()->addUser($userToSave);
     }
 }

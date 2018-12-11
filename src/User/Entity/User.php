@@ -14,6 +14,13 @@ class User
         $this->alias = $alias;
     }
 
+    public static function createUserWithPassword(User $user, string $password): self
+    {
+        $instance = new self($user->getUsername(), $user->getAlias());
+        $instance->password = $password;
+        return $instance;
+    }
+
     public function getUsername(): string
     {
         return $this->username;
@@ -22,12 +29,6 @@ class User
     public function getAlias(): string
     {
         return $this->alias;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-        return $this;
     }
 
     public function getPassword(): string
