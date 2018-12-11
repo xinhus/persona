@@ -2,8 +2,8 @@
 
 namespace Test\Persona\Repository;
 
-use Persona\Entity\User;
-use Persona\Repository\UserService;
+use Persona\User\Entity\User;
+use Persona\User\Repository\UserService;
 use PHPUnit\Framework\Assert;
 use Test\Persona\PersonaTestCase;
 

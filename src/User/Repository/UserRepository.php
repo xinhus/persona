@@ -1,8 +1,8 @@
 <?php
 
-namespace Persona\Repository;
+namespace Persona\User\Repository;
 
-use Persona\Entity\User;
+use Persona\User\Entity\User;
 
 interface UserRepository
 {

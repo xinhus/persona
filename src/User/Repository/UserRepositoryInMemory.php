@@ -1,9 +1,9 @@
 <?php
 
-namespace Persona\Repository;
+namespace Persona\User\Repository;
 
-use Persona\Entity\User;
-use Persona\Exception\UserNotFoundException;
+use Persona\User\Entity\User;
+use Persona\User\Exception\UserNotFoundException;
 
 class UserRepositoryInMemory implements UserRepository
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Persona\Repository;
+namespace Persona\User\Repository;
 
 class UserService
 {
