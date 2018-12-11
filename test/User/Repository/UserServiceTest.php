@@ -40,7 +40,7 @@ class UserServiceTest extends PersonaTestCase
         try {
             UserService::resolve()->getUserByUsername('Invalid User');
             Assert::fail();
-        } catch (\Persona\Exception\UserNotFoundException $e) {
+        } catch (\Persona\User\Exception\UserNotFoundException $e) {
             Assert::assertEquals($e->getMessage(), 'User "Invalid User" not found.');
         }
     }
