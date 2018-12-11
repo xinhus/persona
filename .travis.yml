@@ -12,7 +12,7 @@ install:
 
 script:
   - composer test
-  - compsoer sniffer
+  - composer sniffer
 
 cache:
   apt: true

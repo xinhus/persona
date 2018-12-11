@@ -23,7 +23,7 @@
         }
     },
     "scripts": {
-        "test": "phpunit --colors=always",
+        "test": "phpunit test --colors=always",
         "sniffer": "phpcs src -sp --standard=vendor/object-calisthenics/phpcs-calisthenics-rules/src/ObjectCalisthenics/ruleset.xml"
     }
 }
