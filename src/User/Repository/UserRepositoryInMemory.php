@@ -11,6 +11,10 @@ class UserRepositoryInMemory implements UserRepository
     /** @var User[] */
     private $users = [];
 
+    public function __construct(UserRepositoryResolver $void)
+    {
+    }
+
     public function addUser(User $user): bool
     {
         if (isset($this->users[$user->getUsername()])) {
@@ -24,7 +28,7 @@ class UserRepositoryInMemory implements UserRepository
     {
         foreach ($this->users as $user) {
             if ($user->getUsername() === $username) {
-                return $user;
+                return User::createUserWithPassword($user, $user->getPassword());
             }
         }
         throw new UserNotFoundException("User \"{$username}\" not found.");

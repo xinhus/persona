@@ -2,7 +2,7 @@
 
 namespace Test\Persona;
 
-use Persona\User\Repository\UserServiceForTest;
+use Persona\User\Repository\UserRepositoryResolverForTest;
 use PHPUnit\Framework\TestCase;
 
 class PersonaTestCase extends TestCase
@@ -13,6 +13,6 @@ class PersonaTestCase extends TestCase
      */
     public function cleanUserRepository()
     {
-        UserServiceForTest::reset();
+        UserRepositoryResolverForTest::reset();
     }
 }
