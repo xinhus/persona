@@ -4,9 +4,9 @@ namespace Test\Persona\Entity;
 
 use Persona\Entity\User;
 use PHPUnit\Framework\Assert;
-use PHPUnit\Framework\TestCase;
+use Test\Persona\PersonaTestCase;
 
-class UserTest extends TestCase
+class UserTest extends PersonaTestCase
 {
 
     public function testUser()
