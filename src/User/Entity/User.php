@@ -1,6 +1,6 @@
 <?php
 
-namespace Persona\Entity;
+namespace Persona\User\Entity;
 
 class User
 {

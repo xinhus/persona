@@ -1,6 +1,6 @@
 <?php
 
-namespace Persona\Exception;
+namespace Persona\User\Exception;
 
 class UserNotFoundException extends \Exception
 {

@@ -2,7 +2,7 @@
 
 namespace Test\Persona;
 
-use Persona\Repository\UserServiceForTest;
+use Persona\User\Repository\UserServiceForTest;
 use PHPUnit\Framework\TestCase;
 
 class PersonaTestCase extends TestCase

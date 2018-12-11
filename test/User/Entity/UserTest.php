@@ -2,7 +2,7 @@
 
 namespace Test\Persona\Entity;
 
-use Persona\Entity\User;
+use Persona\User\Entity\User;
 use PHPUnit\Framework\Assert;
 use Test\Persona\PersonaTestCase;
 

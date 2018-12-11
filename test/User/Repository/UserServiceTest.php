@@ -2,8 +2,8 @@
 
 namespace Test\Persona\Repository;
 
-use Persona\Entity\User;
-use Persona\Repository\UserService;
+use Persona\User\Entity\User;
+use Persona\User\Repository\UserService;
 use PHPUnit\Framework\Assert;
 use Test\Persona\PersonaTestCase;
 
@@ -40,7 +40,7 @@ class UserServiceTest extends PersonaTestCase
         try {
             UserService::resolve()->getUserByUsername('Invalid User');
             Assert::fail();
-        } catch (\Persona\Exception\UserNotFoundException $e) {
+        } catch (\Persona\User\Exception\UserNotFoundException $e) {
             Assert::assertEquals($e->getMessage(), 'User "Invalid User" not found.');
         }
     }
