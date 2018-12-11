@@ -2,6 +2,7 @@
 
 namespace Test\Persona\User\UseCase;
 
+use Persona\Token\Repository\TokenService;
 use Persona\User\Entity\User;
 use Persona\User\Repository\UserRepositoryResolver;
 use Persona\User\UseCase\UserServiceResolver;
@@ -36,7 +37,8 @@ class UserServiceFacadeTest extends PersonaTestCase
         $user = new User($username, $alias);
         UserServiceResolver::resolve()->createUser($user, $password);
         $result = UserServiceResolver::resolve()->login($username, $password);
-        Assert::assertTrue($result);
+        Assert::assertTrue($result->isSuccess());
+        Assert::assertTrue(TokenService::isValidToken($result->getToken()));
     }
 
     public function testLoginWithInvalidPasswordShouldReturnFalse()
@@ -47,7 +49,15 @@ class UserServiceFacadeTest extends PersonaTestCase
 
         $user = new User($username, $alias);
         UserServiceResolver::resolve()->createUser($user, $password);
-        $result = UserServiceResolver::resolve()->login($username, 'passwordfake');
-        Assert::assertFalse($result);
+        $result = UserServiceResolver::resolve()->login($username, 'passwordFake');
+        Assert::assertFalse($result->isSuccess());
+        Assert::assertFalse(TokenService::isValidToken($result->getToken()));
+    }
+
+    public function testLoginWithInvalidUsernameShouldReturnFalse()
+    {
+        $result = UserServiceResolver::resolve()->login('userNotFound', 'passwordFake');
+        Assert::assertFalse($result->isSuccess());
+        Assert::assertFalse(TokenService::isValidToken($result->getToken()));
     }
 }
