@@ -14,16 +14,40 @@ class UserServiceFacadeTest extends PersonaTestCase
     public function testCreateUser()
     {
         $password = 'myfakepassword';
-        $passwordEncrypted = Vault::encrypt($password, 'User');
         $username = 'foo';
         $userAlias = 'bar';
-        $user = new User($username, $userAlias);
 
+        $user = new User($username, $userAlias);
         UserServiceResolver::resolve()->createUser($user, $password);
         $userFromRepository = UserRepositoryResolver::resolve()->getUserByUsername($username);
 
         Assert::assertEquals($username, $userFromRepository->getUsername());
         Assert::assertEquals($userAlias, $userFromRepository->getAlias());
-        Assert::assertEquals($passwordEncrypted, $userFromRepository->getPassword());
+        $passwordResult = Vault::verifyPassword($userFromRepository->getPassword(), $password, 'User');
+        Assert::assertTrue($passwordResult);
+    }
+
+    public function testLoginWithValidPasswordShouldReturnTrue()
+    {
+        $password = 'password';
+        $username = 'username';
+        $alias = 'Alias';
+
+        $user = new User($username, $alias);
+        UserServiceResolver::resolve()->createUser($user, $password);
+        $result = UserServiceResolver::resolve()->login($username, $password);
+        Assert::assertTrue($result);
+    }
+
+    public function testLoginWithInvalidPasswordShouldReturnFalse()
+    {
+        $password = 'password';
+        $username = 'username';
+        $alias = 'Alias';
+
+        $user = new User($username, $alias);
+        UserServiceResolver::resolve()->createUser($user, $password);
+        $result = UserServiceResolver::resolve()->login($username, 'passwordfake');
+        Assert::assertFalse($result);
     }
 }
