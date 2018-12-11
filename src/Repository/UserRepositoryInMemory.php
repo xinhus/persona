@@ -9,20 +9,20 @@ class UserRepositoryInMemory implements UserRepository
 {
 
     /** @var User[] */
-    private static $users = [];
+    private $users = [];
 
     public function addUser(User $user): bool
     {
-        if (isset(self::$users[$user->getUsername()])) {
+        if (isset($this->users[$user->getUsername()])) {
             return false;
         }
-        self::$users[$user->getUsername()] = $user;
+        $this->users[$user->getUsername()] = $user;
         return true;
     }
 
     public function getUserByUsername(string $username): User
     {
-        foreach (self::$users as $user) {
+        foreach ($this->users as $user) {
             if ($user->getUsername() === $username) {
                 return $user;
             }

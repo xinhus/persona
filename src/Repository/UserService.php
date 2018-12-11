@@ -4,7 +4,7 @@ namespace Persona\Repository;
 
 class UserService
 {
-    private static $instance;
+    protected static $instance;
 
     public static function resolve(): UserRepository
     {

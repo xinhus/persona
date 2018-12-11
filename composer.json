@@ -19,7 +19,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Test\\Persona\\": "test/"
+            "Test\\Persona\\": "test/",
+            "Persona\\": "test/_support"
         }
     },
     "scripts": {

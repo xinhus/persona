@@ -5,9 +5,9 @@ namespace Test\Persona\Repository;
 use Persona\Entity\User;
 use Persona\Repository\UserService;
 use PHPUnit\Framework\Assert;
-use PHPUnit\Framework\TestCase;
+use Test\Persona\PersonaTestCase;
 
-class UserServiceTest extends TestCase
+class UserServiceTest extends PersonaTestCase
 {
 
     public function testResolve()
