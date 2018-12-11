@@ -6,13 +6,13 @@ class User
 {
     private $username;
     private $alias;
+    private $password = '';
 
     public function __construct(string $username, string $alias)
     {
         $this->username = $username;
         $this->alias = $alias;
     }
-
 
     public function getUsername(): string
     {
@@ -22,5 +22,16 @@ class User
     public function getAlias(): string
     {
         return $this->alias;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+        return $this;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
     }
 }

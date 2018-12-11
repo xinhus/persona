@@ -11,6 +11,10 @@ class UserRepositoryInMemory implements UserRepository
     /** @var User[] */
     private $users = [];
 
+    public function __construct(UserRepositoryResolver $void)
+    {
+    }
+
     public function addUser(User $user): bool
     {
         if (isset($this->users[$user->getUsername()])) {

@@ -2,7 +2,7 @@
 
 namespace Persona\User\Repository;
 
-class UserServiceForTest extends UserService
+class UserRepositoryResolverForTest extends UserRepositoryResolver
 {
     public static function reset(): void
     {
